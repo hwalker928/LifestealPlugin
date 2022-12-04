@@ -1,0 +1,32 @@
+name: LifeSteal
+version: '${version}'
+main: link.harryw.lifesteal.LifeSteal
+api-version: 1.19
+depend: [ PlaceholderAPI, Oraxen ]
+description: A custom plugin made for the LifeSteal server.
+website: https://harryw.link
+commands:
+  hearts:
+    usage: /<command>
+    description: Show a players heart count
+  lshelp:
+    usage: /<command>
+    description: Show the help command
+  recipe:
+    usage: /<command>
+    description: Show the heart crafting recipe
+  lsreload:
+    usage: /<command>
+    description: Reload the LifeSteal config
+  lssethearts:
+    usage: /<command>
+    description: Set a players heart count
+  lsredeemheart:
+    usage: /<command>
+    description: Used by Console
+  lsredeemresetcrystal:
+    usage: /<command>
+    description: Used by Console
+  lsredeemrespawntotem:
+    usage: /<command>
+    description: Used by Console
