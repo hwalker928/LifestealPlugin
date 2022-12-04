@@ -26,11 +26,17 @@ public class SetHeartsCommand implements CommandExecutor {
         }
 
         Player p = plugin.getServer().getPlayer(args[0]);
-        plugin.getConfig().set("PlayerData." + p.getUniqueId() + ".Hearts", Integer.parseInt(args[1]) * 2);
+        try {
+            plugin.getConfig().set("PlayerData." + p.getUniqueId() + ".Hearts", Integer.parseInt(args[1]) * 2);
 
-        plugin.SetHealth(p, Integer.parseInt(args[1]) * 2);
-        sender.sendMessage(plugin.Prefix + "Set " + p.getDisplayName() + "'s hearts to " + args[1]);
-        plugin.saveConfig();
-        return true;
+            plugin.SetHealth(p, Integer.parseInt(args[1]) * 2);
+            sender.sendMessage(plugin.Prefix + "Set " + p.getDisplayName() + "'s hearts to " + args[1]);
+            plugin.saveConfig();
+            return true;
+        } catch (NumberFormatException exception) {
+            sender.sendMessage(plugin.Prefix + "Could not set hearts, invalid number.");
+        }
+
+        return false;
     }
 }
